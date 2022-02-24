@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--  Start Head tag -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content=" Car Rental and Purchase Services">
+  <meta name="author" content="Amir Team">
+  <meta name="keyword" content="Car , Rental ,Purchase">
+  <title>Cairo Car</title>
+
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon" sizes="196x196">
+  <link href="img/favicon.png" rel="apple-touch-icon" sizes="196x196">
+  <link href="img/favicon.png" rel="shortcut icon">
+  <!-- Bootstrap core CSS -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--external css-->
+  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <!-- <link href="css/style.css" rel="stylesheet"> -->
+  <link href="css/style-responsive.css" rel="stylesheet">
+
+  <style>
+    @media print {
+      .main-content .btn_print {
+        display: none;
+      }
+    }
+
+    body {
+      width: 100%;
+      padding: 10px;
+      margin: 0px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .btn_print {
+      background-color: teal;
+      color: white;
+      size: 10px;
+      width: 90px;
+      height: 30px;
+      border-radius: 10px;
+      border: 0ch;
+    }
+
+    .Signature{
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="container">
+    <!--main content start-->
+    <section id="main-content" class="main-content">
+      <section class="wrapper">
+        <div id="main-content-div">
+          <div class="content-panel">
+            <h1 class="centered text-center" style="color:red; margin-top: 30px;">Print Payment Invoice</h1>
+
+            <div style="padding: 60px;">
+              <p><b style="color: crimson">Company Name:</b>Cairo Car</h4>
+              <p><b style="color: crimson">Name:</b> <span id="txt_name">Mohamed Amir</span>  </p>
+              <p><b style="color: crimson">Email:</b> amir.business006@gmail.com </p>
+              <p><b style="color: crimson">Card Number:</b>  <span id="txt_cardNo">**** **** 9232 </span></p>
+              <p><b style="color: crimson">Car Model:</b> BMW </p>
+              <p><b style="color: crimson">Price:</b> <span id="txt_price">12,000</span> $</p>
+              <p><b style="color: crimson">Address:</b> Cairo </p>
+              <p><b style="color: crimson">Phone:</b>01200629422</p>
+              <p><b style="color: crimson">Date:</b> <span id="demo"></span></p>
+            </div>
+
+            <div class="Signature">
+              <b>Signature:</b>
+              <p>.............................</p>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+
+            <div class="text-center">
+                <input class="btn_print" type="button" onclick="window.print();" value="print" />
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </section>
+  </section>
+
+
+
+  <!-- js  -->
+
+  <script>
+    document.getElementById("txt_name").innerHTML =  sessionStorage.getItem('name');
+    document.getElementById("txt_price").innerHTML =  sessionStorage.getItem('price');
+    document.getElementById("txt_cardNo").innerHTML ="**** **** "+ sessionStorage.getItem('cardNo').substring(8,12);
+
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date + ' ' + time;
+    document.getElementById("demo").innerHTML = dateTime;
+  </script>
+  <!-- End Js -->
+</body>
+<!-- End Body -->
+
+</html>
